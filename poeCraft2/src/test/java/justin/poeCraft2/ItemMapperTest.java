@@ -14,11 +14,11 @@ public class ItemMapperTest {
 	public void init(){
 		itemMapper = new ItemMapper();
 		//item = new Item("Healing", "Seething", "Of Movement");
-		itemFromJson = itemMapper.createObjectFromJson();
+		itemFromJson = (Item) itemMapper.createObjectFromJson("{\"flaskType\": \"health\"}");
 	}
 	@Test
 	public void canMapJsonToObject(){
-		System.out.println(itemFromJson.getFlaskType());
+		System.out.println(itemFromJson.getItemType());
 		
 		//Assert.assertEquals(item, itemMapper.createObjectFromJson());
 		//Assert.assertTrue(EqualsBuilder.reflectionEquals(item, itemMapper.createObjectFromJson()));
@@ -27,6 +27,6 @@ public class ItemMapperTest {
 		
 		//Assert.assertEquals(item.getFlaskType(), itemFromJson.getFlaskType());
 		
-		Assert.assertEquals("Hello World", itemFromJson.getFlaskType());
+		Assert.assertEquals("health", itemFromJson.getItemType());
 	}
 }

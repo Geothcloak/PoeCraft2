@@ -6,15 +6,19 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import justin.gearFactory.Gear;
+import justin.gearFactory.GearFactory;
+
 public class ItemMapper {
-	 public Item createObjectFromJson(){
+	 public Gear createObjectFromJson(String jsonString){
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonString = "{\"flaskType\": \"Hello World\"}";
-		//"{\"flaskType\": \"Healing\"}";
-		//"{\"flaskType\": \"Healing\",\"prefix\": [\"Seething\", \"Bubbling\"],\"suffix\":[\"Of Movement\", \"Of Damage\"]}"
+		GearFactory gearFactory = new GearFactory();
+		Gear newGearCreated;
+		
 		Item item = null;
 		try {
 			item = mapper.readValue(jsonString, Item.class);
+			
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -22,7 +26,9 @@ public class ItemMapper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return item;
+		return gearFactory.getGear(item.getItemType());
 	}
+
+
 	
 }

@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Item {
-	private String flaskType;
+	private String itemType;
 	//private String prefix;
 	//private String suffix;
 	
 	@JsonCreator
 	public Item(@JsonProperty("flaskType") String flaskType1){
 		super();
-		this.flaskType = flaskType1;
+		this.itemType = flaskType1;
 	}
 	/*
 	public Item(String flaskType1, String prefix1, String suffix1){
@@ -22,12 +22,12 @@ public class Item {
 	}
 	*/
 	
-	public String getFlaskType() {
-		return flaskType;
+	public String getItemType() {
+		return itemType;
 	}
 	
-	public void setFlaskType(String flaskType) {
-		this.flaskType = flaskType;
+	public void setItemType(String flaskType) {
+		this.itemType = flaskType;
 	}
 	
 	/*
