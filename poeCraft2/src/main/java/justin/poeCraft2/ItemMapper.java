@@ -18,7 +18,6 @@ public class ItemMapper {
 		Item item = null;
 		try {
 			item = mapper.readValue(jsonString, Item.class);
-			
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
